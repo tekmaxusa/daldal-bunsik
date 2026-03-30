@@ -1,4 +1,5 @@
 import { MenuItem, Location, MenuSectionKey } from './types';
+import { publicUrl } from './lib/utils';
 
 export const MENU_SECTION_ORDER: {
   key: MenuSectionKey;
@@ -42,7 +43,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$12.99',
     category: 'Main',
     menuSection: 'korean-soul-food',
-    image: '/images/jajangmyeon.png',
+    image: publicUrl('images/jajangmyeon.png'),
     spicyLevel: 0,
   },
   {
@@ -55,7 +56,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$14.99',
     category: 'Main',
     menuSection: 'korean-soul-food',
-    image: '/images/jjamppong.png',
+    image: publicUrl('images/jjamppong.png'),
     spicyLevel: 3,
   },
   {
@@ -68,7 +69,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$15.99',
     category: 'Main',
     menuSection: 'korean-soul-food',
-    image: '/images/tangsuyuk.png',
+    image: publicUrl('images/tangsuyuk.png'),
     spicyLevel: 0,
   },
   {
@@ -81,7 +82,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$14.99',
     category: 'Main',
     menuSection: 'korean-soul-food',
-    image: '/images/donkatsu.png',
+    image: publicUrl('images/donkatsu.png'),
     spicyLevel: 0,
   },
   {
@@ -94,7 +95,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$13.99',
     category: 'Main',
     menuSection: 'homestyle-soups',
-    image: '/images/tteok-mandu-guk.png',
+    image: publicUrl('images/tteok-mandu-guk.png'),
     spicyLevel: 0,
   },
   {
@@ -107,7 +108,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$13.99',
     category: 'Main',
     menuSection: 'homestyle-soups',
-    image: '/images/mandu-guk.png',
+    image: publicUrl('images/mandu-guk.png'),
     spicyLevel: 0,
   },
   {
@@ -120,7 +121,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$13.99',
     category: 'Main',
     menuSection: 'noodles-specialty',
-    image: '/images/mori-soba.png',
+    image: publicUrl('images/mori-soba.png'),
     spicyLevel: 0,
   },
   {
@@ -133,7 +134,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$14.99',
     category: 'Main',
     menuSection: 'noodles-specialty',
-    image: '/images/mul-naengmyeon.png',
+    image: publicUrl('images/mul-naengmyeon.png'),
     spicyLevel: 0,
   },
   {
@@ -146,7 +147,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$13.99',
     category: 'Main',
     menuSection: 'noodles-specialty',
-    image: '/images/jjolmyeon.png',
+    image: publicUrl('images/jjolmyeon.png'),
     spicyLevel: 2,
   },
   {
@@ -159,7 +160,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$17.99',
     category: 'Main',
     menuSection: 'chefs-specials',
-    image: '/images/chicken-rice-plate.png',
+    image: publicUrl('images/chicken-rice-plate.png'),
     spicyLevel: 1,
     limitedAvailability: true,
     orderSpecial: true,
@@ -174,7 +175,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: '$18.99',
     category: 'Main',
     menuSection: 'chefs-specials',
-    image: '/images/salmon-deopbap-feature.png',
+    image: publicUrl('images/salmon-deopbap-feature.png'),
     spicyLevel: 2,
     signatureDish: true,
     orderSpecial: true,

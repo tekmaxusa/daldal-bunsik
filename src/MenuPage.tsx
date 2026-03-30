@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import MenuSection from './components/MenuSection';
 import { MENU_ITEMS, MENU_SECTION_ORDER } from './constants';
+import { publicUrl } from './lib/utils';
 import { useOrder } from './context/OrderContext';
 
 /** Fixed nav (~88px) + sticky category bar — must match scroll-padding-top in index.css */
@@ -63,7 +64,7 @@ export default function MenuPage() {
             className="relative w-full max-w-md aspect-square rounded-full overflow-hidden border-[12px] border-white shadow-2xl"
           >
             <img
-              src="/images/donkatsu.png"
+              src={publicUrl('images/donkatsu.png')}
               alt="Daldal Bunsik soul menu — Korean classics"
               className="w-full h-full object-cover"
             />

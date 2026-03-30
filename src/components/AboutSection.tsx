@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Heart, Users, Utensils } from 'lucide-react';
+import { publicUrl } from '../lib/utils';
 
 export default function AboutSection() {
   return (
@@ -56,24 +57,24 @@ export default function AboutSection() {
             >
               <div className="space-y-6 pt-16">
                 <img
-                  src="/images/jajangmyeon.png"
+                  src={publicUrl('images/jajangmyeon.png')}
                   alt="Jajangmyeon black bean noodles with fried dumpling and fresh vegetables"
                   className="rounded-[40px] w-full h-[400px] object-cover shadow-2xl border-8 border-white"
                 />
                 <img
-                  src="/images/jjamppong.png"
+                  src={publicUrl('images/jjamppong.png')}
                   alt="Jjamppong spicy seafood noodle soup in a stainless steel bowl"
                   className="rounded-[40px] w-full h-64 object-cover shadow-2xl border-8 border-white"
                 />
               </div>
               <div className="space-y-6">
                 <img
-                  src="/images/mul-naengmyeon.png"
+                  src={publicUrl('images/mul-naengmyeon.png')}
                   alt="Mul naengmyeon cold buckwheat noodles in chilled broth"
                   className="rounded-[40px] w-full h-64 object-cover shadow-2xl border-8 border-white"
                 />
                 <img
-                  src="/images/kimbap.png"
+                  src={publicUrl('images/kimbap.png')}
                   alt="Fresh vegetable kimbap rolls on a plate"
                   className="rounded-[40px] w-full h-[400px] object-cover shadow-2xl border-8 border-white"
                 />

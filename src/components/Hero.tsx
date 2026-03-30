@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Star, Utensils } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { publicUrl } from '../lib/utils';
 
 export default function Hero() {
   return (
@@ -61,7 +62,7 @@ export default function Hero() {
         >
           <div className="relative z-10 rounded-[60px] overflow-hidden shadow-2xl border-[16px] border-white transform rotate-2">
             <img
-              src="/images/chicken-rice-plate.png"
+              src={publicUrl('images/chicken-rice-plate.png')}
               alt="Korean chicken rice plate with rice, salad, celery, and dipping sauces"
               className="w-full h-auto object-cover"
               width={1000}

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Clock } from 'lucide-react';
 import StoreMapEmbed from './components/StoreMapEmbed';
 import { LOCATIONS, STORE_SOCIAL, STORE_MAP_LABEL } from './constants';
+import { publicUrl } from './lib/utils';
 
 const store = LOCATIONS[0];
 
@@ -194,7 +195,7 @@ export default function LocationsPage() {
             className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-square max-w-lg mx-auto lg:mx-0"
           >
             <img
-              src="/images/tangsuyuk.png"
+              src={publicUrl('images/tangsuyuk.png')}
               alt="Tangsuyuk sweet and sour crispy pork at Daldal Bunsik"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
