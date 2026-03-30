@@ -73,9 +73,15 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+function routerBasename(): string | undefined {
+  const raw = import.meta.env.BASE_URL;
+  if (raw === '/') return undefined;
+  return raw.endsWith('/') ? raw.slice(0, -1) : raw;
+}
+
 export default function App() {
   return (
-    <Router>
+    <Router basename={routerBasename()}>
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-grow">
