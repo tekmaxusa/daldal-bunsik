@@ -1,0 +1,7 @@
+{
+  "name": "Daldal Bunsik",
+  "description": "Authentic Korean Street Food - Playful, Clean, and Delicious.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
