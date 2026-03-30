@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Daldal Bunsik
 
-# Run and deploy your AI Studio app
+Korean bunsik (snack bar) restaurant site — menu, locations, and online ordering — built with **Vite**, **React**, and **Tailwind CSS**.
 
-This contains everything you need to run your app locally.
+## Run locally
 
-View your app in AI Studio: https://ai.studio/apps/4f22f4a8-fdf6-4d03-b3ef-ff1a3dd12902
+**Prerequisites:** Node.js 20+
 
-## Run Locally
+1. Install dependencies: `npm install`
+2. Copy `.env.example` to `.env` and set any `VITE_*` values you need (ordering, etc.)
+3. Start dev server: `npm run dev` → [http://localhost:3000](http://localhost:3000)
 
-**Prerequisites:**  Node.js
+## Production build
 
+```bash
+npm run build
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Docker
+
+```bash
+docker compose up --build
+```
+
+App is served at [http://localhost:3000](http://localhost:3000) (nginx).
+
+## Repo
+
+[https://github.com/tekmaxusa/Daldal-Bunsik](https://github.com/tekmaxusa/Daldal-Bunsik)
