@@ -11,6 +11,7 @@ import {
   parseMenuPrice,
 } from './lib/orderConfig';
 import { isOrderEmailConfigured, submitOrderEmail } from './lib/submitOrderEmail';
+import { isWithinCarrolltonPostedHours } from './lib/storeHours';
 
 type FulfillmentType = 'pickup' | 'delivery';
 
@@ -52,7 +53,9 @@ function validateSchedule(date: string, time: string): string | null {
   const when = new Date(`${date}T${time}:00`);
   if (Number.isNaN(when.getTime())) return 'Please choose a valid date and time.';
   if (when.getTime() < Date.now()) return 'Please choose a future date and time.';
-  if (when.getDay() === 0) return 'We are closed on Sundays. Please choose another date.';
+  if (!isWithinCarrolltonPostedHours(date, time)) {
+    return 'We are closed Wednesdays and Sundays, and open other days 11:00 AM – 9:00 PM Central. Please pick a valid date and time.';
+  }
   return null;
 }
 
@@ -228,24 +231,24 @@ export default function OrderPage() {
   };
 
   return (
-    <main className="pt-32 pb-24 px-6 bg-brand-cream min-h-screen">
-      <div className="max-w-2xl mx-auto">
+    <main className="pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 px-4 sm:px-6 bg-brand-cream min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+      <div className="max-w-2xl mx-auto w-full min-w-0">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl md:text-6xl font-fredoka font-bold text-brand-red normal-case mb-3">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-fredoka font-bold text-brand-red normal-case mb-3">
             Your order
           </h1>
-          <p className="text-brand-dark/70 font-nunito text-lg">
+          <p className="text-brand-dark/70 font-nunito text-base sm:text-lg px-1">
             Choose pickup or delivery, date and time, your contact info, then send your order by email. We&apos;ll
             confirm with you.
           </p>
         </motion.div>
 
         {lines.length === 0 ? (
-          <div className="bg-white rounded-[32px] p-12 text-center border border-gray-100 shadow-lg space-y-6">
+          <div className="bg-white rounded-[32px] p-6 sm:p-10 md:p-12 text-center border border-gray-100 shadow-lg space-y-6">
             {showEmailSuccess ? (
               <div className="rounded-2xl bg-green-50 border border-green-200 text-green-900 px-6 py-4 font-nunito">
                 <p className="font-fredoka font-bold text-lg normal-case mb-1">Order sent</p>
@@ -255,7 +258,7 @@ export default function OrderPage() {
               </div>
             ) : null}
             <p className="text-brand-dark/70 font-nunito text-lg">
-              Your cart is empty. Browse the menu and tap &quot;Add to order&quot; on anything you want.
+              Your cart is empty. Browse the menu for what we serve, then visit us or call to place an order.
             </p>
             <Link
               to="/menu"
@@ -405,7 +408,8 @@ export default function OrderPage() {
                   </div>
                 </div>
                 <p className="text-xs text-brand-dark/50 font-nunito leading-relaxed">
-                  We&apos;ll confirm this slot by message. Hours: Mon–Sat 11:00 AM – 9:00 PM (Sun closed).
+                  We&apos;ll confirm this slot by message. Hours: Mon, Tue, Thu–Sat 11:00 AM – 9:00 PM
+                  CST. Closed Wed &amp; Sun. Times are Central Time.
                 </p>
               </div>
             </div>

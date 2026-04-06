@@ -3,10 +3,7 @@ import { motion } from 'motion/react';
 import { MENU_ITEMS } from '../constants';
 import { Flame } from 'lucide-react';
 import { cn } from '../lib/utils';
-import { useOrder } from '../context/OrderContext';
-
 export default function MenuGrid() {
-  const { addItem } = useOrder();
   const categories = ['All', 'Main', 'Sides', 'Drinks', 'Desserts'];
   const [activeCategory, setActiveCategory] = React.useState('All');
 
@@ -72,7 +69,7 @@ export default function MenuGrid() {
                     ))}
                   </div>
                 )}
-                <div className="absolute bottom-4 left-4 bg-brand-yellow text-brand-dark font-fredoka font-bold px-4 py-1 rounded-full shadow-md">
+                <div className="absolute bottom-4 left-4 right-4 max-w-[calc(100%-2rem)] bg-brand-yellow text-brand-dark font-fredoka font-bold px-3 py-2 sm:px-4 sm:py-1 rounded-2xl sm:rounded-full shadow-md text-sm sm:text-base leading-snug break-words">
                   {item.price}
                 </div>
               </div>
@@ -80,18 +77,11 @@ export default function MenuGrid() {
               <div className="p-8">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-2xl font-fredoka font-bold text-brand-dark">{item.name}</h3>
-                  <span className="korean-text text-brand-red font-bold text-lg">{item.koreanName}</span>
+                  <span className="korean-text text-brand-red font-bold text-xl">{item.koreanName}</span>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed">
                   {item.description}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => addItem(item)}
-                  className="w-full py-3 border-2 border-brand-dark rounded-2xl font-fredoka font-bold hover:bg-brand-dark hover:text-white transition-colors"
-                >
-                  ADD TO ORDER
-                </button>
               </div>
             </motion.div>
           ))}

@@ -19,7 +19,11 @@ export function buildWhatsAppOrderLink(message: string): string {
   return `https://wa.me/${whatsappDigits}?text=${encoded}`;
 }
 
+/** Parses cart subtotal from menu `price` (supports "Lunch $9 · Dinner $14" and single "$12.99"). */
 export function parseMenuPrice(price: string): number {
+  const amounts = [...price.matchAll(/\$(\d+(?:\.\d{1,2})?)/g)].map((m) => Number.parseFloat(m[1]));
+  if (amounts.length >= 2) return amounts[amounts.length - 1] ?? 0;
+  if (amounts.length === 1) return amounts[0] ?? 0;
   const n = Number.parseFloat(price.replace(/[^0-9.]/g, ''));
   return Number.isFinite(n) ? n : 0;
 }
