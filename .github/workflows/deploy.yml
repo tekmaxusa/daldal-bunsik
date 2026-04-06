@@ -36,9 +36,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Base path must match the repo slug (e.g. daldal-bunsik), or /assets/ will 404 on Pages.
       - name: Build
-        env:
-          VITE_BASE_URL: /Daldal-Bunsik/
         run: npm run build
 
       - name: Upload artifact
