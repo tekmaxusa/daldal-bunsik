@@ -49,8 +49,9 @@
     /* Fixed navbar + sticky menu category bar — keeps #anchors visible */
     scroll-padding-top: 11rem;
   }
+  /* overflow-x-clip avoids horizontal scroll without breaking position:sticky (hidden often does). */
   body {
-    @apply font-nunito bg-brand-cream text-brand-dark antialiased;
+    @apply font-nunito bg-brand-cream text-brand-dark antialiased overflow-x-clip;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-fredoka uppercase tracking-tight;
@@ -69,6 +70,6 @@
     100% { transform: translateX(-50%); }
   }
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 45s linear infinite;
   }
 }

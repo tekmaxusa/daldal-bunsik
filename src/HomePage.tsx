@@ -3,26 +3,56 @@ import Hero from './components/Hero';
 import MenuSection from './components/MenuSection';
 import AboutSection from './components/AboutSection';
 import LocationsSection from './components/LocationsSection';
-import { MENU_ITEMS } from './constants';
+import FaqSection from './components/FaqSection';
+import { FEATURED_HOME_MENU_IDS, menuItemsByIds } from './constants';
+
+const MARQUEE_DISHES = [
+  'Jajangmyeon',
+  'Jjamppong',
+  'Tangsuyuk',
+  'Donkatsu',
+  'Tteok Mandu Guk',
+  'Mul Naengmyeon',
+  'Chicken Rice Plate',
+  'Salmon Hwe-Deopbap',
+  'Kimbap',
+  'Tteokbokki',
+  'Ramyun',
+] as const;
+
+const marqueeLine = MARQUEE_DISHES.map((d) => d.toUpperCase()).join(' • ');
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="w-full max-w-[100vw] overflow-x-hidden">
       <Hero />
-      <div className="bg-white py-12 overflow-hidden border-y border-brand-red/5">
-        <div className="flex animate-marquee whitespace-nowrap gap-12 text-4xl font-fredoka font-bold text-gray-100 uppercase">
-          <span>Tteokbokki • Gimbap • Fried Chicken • Mandu • Kimchi • Tteokbokki • Gimbap • Fried Chicken • Mandu • Kimchi • Tteokbokki • Gimbap • Fried Chicken • Mandu • Kimchi</span>
+      <p className="sr-only">
+        Daldal Bunsik (달달분식) is a casual Korean snack bar at 1111 W Frankford Rd Ste 102,
+        Carrollton, TX 75007. 달달분식 serves tteokbokki, jajangmyeon, sujebi, kimbap, chi-bap and
+        Korean comfort meals. Open Mon, Tue, Thu–Sun 11AM–9PM. Closed Wednesdays.
+      </p>
+      <div className="bg-brand-cream py-8 sm:py-12 overflow-hidden border-y border-brand-red/10" aria-hidden>
+        <div className="flex w-max animate-marquee">
+          <span className="shrink-0 pr-10 sm:pr-16 text-2xl sm:text-3xl md:text-4xl font-fredoka font-bold text-gray-800 uppercase tracking-wide whitespace-nowrap select-none">
+            {marqueeLine}
+          </span>
+          <span className="shrink-0 pr-10 sm:pr-16 text-2xl sm:text-3xl md:text-4xl font-fredoka font-bold text-gray-800 uppercase tracking-wide whitespace-nowrap select-none">
+            {marqueeLine}
+          </span>
         </div>
       </div>
       
-      <MenuSection 
-        title="FEATURED SOUL FOOD"
+      <MenuSection
+        title="FEATURED DISHES"
         description="A taste of our most beloved dishes. Hand-crafted with tradition and served with a modern twist."
-        items={MENU_ITEMS.filter((i) => i.menuSection === 'korean-soul-food').slice(0, 2)}
+        items={menuItemsByIds(FEATURED_HOME_MENU_IDS)}
+        desktopGridCols={3}
+        viewMoreTo="/menu"
       />
 
       <AboutSection />
       <LocationsSection />
+      <FaqSection />
     </main>
   );
 }

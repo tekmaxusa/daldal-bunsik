@@ -8,8 +8,8 @@ import OrderCta from './OrderCta';
 
 const navLinks = [
   { name: 'Menu', path: '/menu' },
-  { name: 'Locations', path: '/locations' },
   { name: 'About', path: '/about' },
+  { name: 'Location', path: '/locations' },
 ];
 
 export default function Navbar() {
@@ -33,13 +33,13 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-6',
-        scrolled ? 'bg-brand-cream/95 backdrop-blur-md py-4' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 py-4 sm:py-6 max-w-[100vw] border-b',
+        scrolled ? 'bg-brand-cream/95 backdrop-blur-md py-4 border-brand-red/20' : 'bg-transparent border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-fredoka font-bold tracking-tighter text-brand-red uppercase">
+          <span className="text-2xl sm:text-3xl md:text-4xl font-fredoka font-bold tracking-tighter text-brand-red uppercase">
             DALDAL BUNSIK
           </span>
         </Link>
@@ -50,9 +50,9 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
+                to={link.path === '/locations' ? '/locations#visit-us' : link.path}
                 className={cn(
-                  'font-nunito font-bold text-sm transition-all relative py-1',
+                  'font-nunito font-bold text-lg transition-all relative py-1',
                   location.pathname === link.path 
                     ? 'text-brand-red' 
                     : 'text-gray-600 hover:text-brand-red'
@@ -69,11 +69,11 @@ export default function Navbar() {
             ))}
           </div>
           <OrderCta
-            className="relative bg-brand-red text-white font-fredoka font-bold px-8 py-3 rounded-full shadow-[0_4px_20px_rgba(227,62,35,0.3)] hover:scale-105 active:scale-95 transition-all text-sm uppercase tracking-wider inline-flex items-center gap-2"
+            className="relative bg-brand-red text-white font-fredoka font-bold px-6 sm:px-9 py-3 sm:py-3.5 rounded-full shadow-[0_4px_20px_rgba(227,62,35,0.3)] hover:scale-105 active:scale-95 transition-all text-base sm:text-lg uppercase tracking-wider inline-flex items-center gap-2 shrink-0"
           >
             ORDER NOW
             {itemCount > 0 ? (
-              <span className="min-w-[22px] h-[22px] px-1.5 rounded-full bg-white text-brand-red text-xs font-fredoka font-bold flex items-center justify-center">
+              <span className="min-w-[26px] h-[26px] px-1.5 rounded-full bg-white text-brand-red text-base font-fredoka font-bold flex items-center justify-center">
                 {itemCount > 99 ? '99+' : itemCount}
               </span>
             ) : null}
@@ -85,7 +85,7 @@ export default function Navbar() {
           className="md:hidden text-brand-red p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={36} /> : <Menu size={36} />}
         </button>
       </div>
 
@@ -98,23 +98,23 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 right-0 bg-brand-cream shadow-2xl md:hidden overflow-hidden border-t border-brand-red/10"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="flex flex-col p-6 sm:p-8 gap-4 sm:gap-5">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
-                  to={link.path}
+                  to={link.path === '/locations' ? '/locations#visit-us' : link.path}
                   className={cn(
-                    'font-fredoka text-2xl font-bold uppercase',
+                    'font-fredoka text-xl sm:text-2xl font-bold uppercase',
                     location.pathname === link.path ? 'text-brand-red' : 'text-brand-dark'
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
-              <OrderCta className="bg-brand-red text-white font-fredoka font-bold text-center py-4 rounded-full shadow-lg flex items-center justify-center gap-2">
+              <OrderCta className="bg-brand-red text-white font-fredoka font-bold text-base sm:text-lg text-center py-3.5 sm:py-4 rounded-full shadow-lg flex items-center justify-center gap-2">
                 ORDER NOW
                 {itemCount > 0 ? (
-                  <span className="min-w-[24px] h-6 px-2 rounded-full bg-white text-brand-red text-sm font-fredoka font-bold flex items-center justify-center">
+                  <span className="min-w-[26px] h-7 px-2 rounded-full bg-white text-brand-red text-base font-fredoka font-bold flex items-center justify-center">
                     {itemCount > 99 ? '99+' : itemCount}
                   </span>
                 ) : null}

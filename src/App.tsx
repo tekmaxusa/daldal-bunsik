@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import { AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import MobileScrollActions from './components/MobileScrollActions';
 import HomePage from './HomePage';
 import MenuPage from './MenuPage';
 import AboutPage from './AboutPage';
@@ -13,55 +14,23 @@ function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageWrapper>
-              <HomePage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/menu"
-          element={
-            <PageWrapper>
-              <MenuPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <PageWrapper>
-              <AboutPage />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/locations"
-          element={
-            <PageWrapper>
-              <LocationsPage />
-            </PageWrapper>
-          }
-        />
-        <Route path="/order" element={<Navigate to="/" replace />} />
-      </Routes>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="contents"
+      >
+        <Routes location={location}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/order" element={<Navigate to="/" replace />} />
+        </Routes>
+      </motion.div>
     </AnimatePresence>
-  );
-}
-
-function PageWrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-    >
-      {children}
-    </motion.div>
   );
 }
 
@@ -74,12 +43,13 @@ function routerBasename(): string | undefined {
 export default function App() {
   return (
     <Router basename={routerBasename()}>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col w-full max-w-[100vw] overflow-x-clip">
         <Navbar />
-        <div className="flex-grow">
+        <div className="w-full min-w-0 min-h-0 pb-16 max-md:pb-[5.5rem] md:pb-10">
           <AnimatedRoutes />
         </div>
         <Footer />
+        <MobileScrollActions />
       </div>
     </Router>
   );

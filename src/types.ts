@@ -8,8 +8,6 @@ export interface MenuItem {
   id: string;
   /** Large uppercase title on the card (e.g. JAJANGMYEON) */
   name: string;
-  /** Optional friendly line above `name` (e.g. Jajangmyeon) */
-  displayTitle?: string;
   koreanName: string;
   description: string;
   price: string;
