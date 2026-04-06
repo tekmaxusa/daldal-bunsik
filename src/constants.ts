@@ -54,9 +54,9 @@ export const LOCATIONS: Location[] = [
     name: 'Daldal Bunsik — Carrollton',
     address: '1111 W Frankford Rd Ste 102, Carrollton, TX 75007',
     phone: '(972) XXX-XXXX',
-    hours: 'MON, TUE, THU–SAT: 11:00 AM – 9:00 PM CST · WED & SUN: CLOSED',
-    hoursWeekdays: 'MON, TUE, THU–SAT: 11:00 AM – 9:00 PM CST',
-    hoursSunday: 'WED & SUN: CLOSED',
+    hours: 'MON, TUE, THU–SUN: 11:00 AM – 9:00 PM CST · WED: CLOSED',
+    hoursWeekdays: 'MON, TUE, THU–SUN: 11:00 AM – 9:00 PM CST',
+    hoursSunday: 'WEDNESDAYS: CLOSED',
     mapUrl: STORE_GOOGLE_MAPS_PLACE_URL,
   },
 ];

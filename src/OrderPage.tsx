@@ -54,7 +54,7 @@ function validateSchedule(date: string, time: string): string | null {
   if (Number.isNaN(when.getTime())) return 'Please choose a valid date and time.';
   if (when.getTime() < Date.now()) return 'Please choose a future date and time.';
   if (!isWithinCarrolltonPostedHours(date, time)) {
-    return 'We are closed Wednesdays and Sundays, and open other days 11:00 AM – 9:00 PM Central. Please pick a valid date and time.';
+    return 'We are closed Wednesdays, and open Mon, Tue, Thu–Sun 11:00 AM – 9:00 PM Central. Please pick a valid date and time.';
   }
   return null;
 }
@@ -408,8 +408,8 @@ export default function OrderPage() {
                   </div>
                 </div>
                 <p className="text-xs text-brand-dark/50 font-nunito leading-relaxed">
-                  We&apos;ll confirm this slot by message. Hours: Mon, Tue, Thu–Sat 11:00 AM – 9:00 PM
-                  CST. Closed Wed &amp; Sun. Times are Central Time.
+                  We&apos;ll confirm this slot by message. Hours: Mon, Tue, Thu–Sun 11:00 AM – 9:00 PM
+                  CST. Closed Wednesdays. Times are Central Time.
                 </p>
               </div>
             </div>

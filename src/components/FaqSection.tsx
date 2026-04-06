@@ -17,8 +17,7 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'What are your hours?',
     answer: (
       <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-nunito">
-        We&apos;re open Mon, Tue, Thu, Fri &amp; Sat — 11:00 AM to 9:00 PM CST. Closed Wednesday and
-        Sunday.
+        We&apos;re open Mon, Tue, Thu–Sun — 11:00 AM to 9:00 PM CST. Closed Wednesdays.
       </p>
     ),
   },

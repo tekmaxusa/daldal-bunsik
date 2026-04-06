@@ -29,7 +29,7 @@ export default function HomePage() {
       <p className="sr-only">
         Daldal Bunsik (달달분식) is a casual Korean snack bar at 1111 W Frankford Rd Ste 102,
         Carrollton, TX 75007. 달달분식 serves tteokbokki, jajangmyeon, sujebi, kimbap, chi-bap and
-        Korean comfort meals. Open Mon, Tue, Thu–Sat 11AM–9PM CST. Closed Wed and Sun.
+        Korean comfort meals. Open Mon, Tue, Thu–Sun 11AM–9PM. Closed Wednesdays.
       </p>
       <div className="bg-brand-cream py-8 sm:py-12 overflow-hidden border-y border-brand-red/10" aria-hidden>
         <div className="flex w-max animate-marquee">

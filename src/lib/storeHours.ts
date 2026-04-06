@@ -1,5 +1,5 @@
-/** Carrollton, TX — America/Chicago. Open Mon, Tue, Thu–Sat 11:00–21:00; closed Wed & Sun. */
-const OPEN_DAYS = new Set(['Mon', 'Tue', 'Thu', 'Fri', 'Sat']);
+/** Carrollton, TX — America/Chicago. Open Mon, Tue, Thu–Sun 11:00–21:00; closed Wed. */
+const OPEN_DAYS = new Set(['Mon', 'Tue', 'Thu', 'Fri', 'Sat', 'Sun']);
 
 const OPEN_START_MIN = 11 * 60;
 const OPEN_END_MIN = 21 * 60;
