@@ -9,7 +9,7 @@ const heroImageSrc = publicUrl('images/chicken-rice-plate.png');
 const storePhone = LOCATIONS[0]?.phone ?? '(972) 213-0186';
 
 const heroBodyCopy =
-  'Jajangmyeon. Jjamppong. Tangsuyuk. Naengmyeon. Dumpling soups. Fast, fresh Korean soul food in Carrollton, TX.';
+  'K-BBQ, bibimbap, sundubu, jajangmyeon, jjamppong, kimbap, and cold noodles. Fast, fresh Korean soul food in Carrollton, TX.';
 
 export default function Hero() {
   return (

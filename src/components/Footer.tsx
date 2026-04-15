@@ -34,9 +34,21 @@ export default function Footer() {
 
           <div className="md:col-span-2 sm:col-span-1">
             <ul className="space-y-3 text-gray-400 text-base sm:text-lg font-medium">
-              <li><Link to="/menu" className="hover:text-white transition-colors">Kimbap</Link></li>
-              <li><Link to="/menu" className="hover:text-white transition-colors">Tteokbokki</Link></li>
-              <li><Link to="/menu" className="hover:text-white transition-colors">Ramyun</Link></li>
+              <li>
+                <Link to="/menu#kimbap" className="hover:text-white transition-colors">
+                  Kimbap
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu#korean-soul-food" className="hover:text-white transition-colors">
+                  Tteokbokki
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu#kbbq-ramyun" className="hover:text-white transition-colors">
+                  Ramyun
+                </Link>
+              </li>
             </ul>
           </div>
 

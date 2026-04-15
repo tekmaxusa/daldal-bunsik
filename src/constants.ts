@@ -4,7 +4,7 @@ import { MENU_ITEMS, MENU_SECTION_ORDER } from './menuCatalog';
 export { MENU_ITEMS, MENU_SECTION_ORDER };
 
 /** Home featured row — highlights from the printed menu */
-export const FEATURED_HOME_MENU_IDS = ['jajangmyeon', 'jjamppong', 'chicken-rice-plate'] as const;
+export const FEATURED_HOME_MENU_IDS = ['bulgogi-bbq', 'jajangmyeon', 'chi-bap'] as const;
 
 export function menuItemsByIds(ids: readonly string[]): MenuItem[] {
   return ids.map((id) => MENU_ITEMS.find((i) => i.id === id)).filter((x): x is MenuItem => x != null);

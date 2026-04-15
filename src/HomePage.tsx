@@ -7,17 +7,16 @@ import FaqSection from './components/FaqSection';
 import { FEATURED_HOME_MENU_IDS, menuItemsByIds } from './constants';
 
 const MARQUEE_DISHES = [
+  'Bulgogi BBQ',
+  'LA Galbi',
+  'Bibimbap',
+  'Sundubu',
   'Jajangmyeon',
   'Jjamppong',
-  'Tangsuyuk',
-  'Donkatsu',
-  'Tteok Mandu Guk',
-  'Mul Naengmyeon',
-  'Chicken Rice Plate',
-  'Salmon Hwe-Deopbap',
-  'Kimbap',
   'Tteokbokki',
-  'Ramyun',
+  'Kimbap',
+  'Chi-bap',
+  'Mul Naengmyeon',
 ] as const;
 
 const marqueeLine = MARQUEE_DISHES.map((d) => d.toUpperCase()).join(' • ');
@@ -28,7 +27,7 @@ export default function HomePage() {
       <Hero />
       <p className="sr-only">
         Daldal Bunsik (달달분식) is a casual Korean snack bar at 1111 W Frankford Rd Ste 102,
-        Carrollton, TX 75007. 달달분식 serves tteokbokki, jajangmyeon, sujebi, kimbap, chi-bap and
+        Carrollton, TX 75007.         달달분식 serves K-BBQ, bibimbap, sundubu, tteokbokki, jajangmyeon, kimbap, chi-bap, and
         Korean comfort meals. Open Mon, Tue, Thu–Sun 11 AM–8:30 PM. Closed Wednesdays.
       </p>
       <div className="bg-brand-cream py-8 sm:py-12 overflow-hidden border-y border-brand-red/10" aria-hidden>

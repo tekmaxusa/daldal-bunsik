@@ -1,8 +1,14 @@
 export type MenuSectionKey =
+  | 'korean-bbq'
+  | 'kbbq-ramyun'
+  | 'bibimbap'
+  | 'soft-tofu-soup'
+  | 'fried-rice'
+  | 'sides'
   | 'korean-soul-food'
-  | 'homestyle-soups'
-  | 'noodles-specialty'
-  | 'chefs-specials';
+  | 'kimbap'
+  | 'korean-noodles'
+  | 'specials';
 
 export interface MenuItem {
   id: string;

@@ -3,12 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import MenuSection from './components/MenuSection';
 import { MENU_ITEMS, MENU_SECTION_ORDER } from './constants';
-import { publicUrl } from './lib/utils';
+import { cn, publicUrl } from './lib/utils';
 
 /** Fixed nav (~88px) + sticky category bar — must match scroll-padding-top in index.css */
 const MENU_ANCHOR_OFFSET_PX = 176;
 
-const sectionNav = MENU_SECTION_ORDER.map((s) => ({ id: s.key, label: s.title }));
+const sectionNav = MENU_SECTION_ORDER.map((s) => ({
+  id: s.key,
+  label: s.navLabel ?? s.title,
+}));
 
 function scrollToMenuAnchor(id: string, behavior: ScrollBehavior = 'smooth') {
   const el = document.getElementById(id);
@@ -70,41 +73,64 @@ export default function MenuPage() {
       {/* Sticks below fixed Navbar — needs ancestors without overflow-x-hidden (use clip on body). */}
       <div className="sticky top-[4.5rem] sm:top-24 md:top-[5.5rem] z-[45] w-full bg-brand-cream/95 backdrop-blur-md border-b-2 border-brand-red/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
-          {/* Mobile: 2×2 grid so all categories show without horizontal scroll */}
-          <div className="grid grid-cols-2 gap-x-2 gap-y-1 py-2.5 md:hidden">
-            {sectionNav.map((cat) => (
-              <Link
-                key={cat.id}
-                to={`/menu#${cat.id}`}
-                onClick={(e) => {
-                  if (location.pathname !== '/menu') return;
-                  e.preventDefault();
-                  scrollToMenuAnchor(cat.id, 'smooth');
-                  window.history.replaceState(null, '', `/menu#${cat.id}`);
-                }}
-                className="font-fredoka font-bold text-brand-red hover:opacity-70 transition-opacity text-sm leading-snug tracking-wide uppercase text-center px-2 py-3 rounded-xl bg-white/60 border border-brand-red/10"
-              >
-                {cat.label}
-              </Link>
-            ))}
+          {/* Mobile: horizontal scroll */}
+          <div
+            className={cn(
+              'md:hidden overflow-x-auto overscroll-x-contain',
+              /* Hide horizontal scrollbar but keep touch/drag scroll */
+              '[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
+              'py-4 -mx-1 px-1',
+            )}
+          >
+            <div className="flex gap-2 min-w-max">
+              {sectionNav.map((cat) => (
+                <Link
+                  key={cat.id}
+                  to={`/menu#${cat.id}`}
+                  onClick={(e) => {
+                    if (location.pathname !== '/menu') return;
+                    e.preventDefault();
+                    scrollToMenuAnchor(cat.id, 'smooth');
+                    window.history.replaceState(null, '', `/menu#${cat.id}`);
+                  }}
+                  className="shrink-0 font-fredoka font-bold text-brand-red hover:opacity-70 transition-opacity text-sm sm:text-base leading-snug tracking-wide uppercase text-center px-3.5 py-3 rounded-xl bg-white/60 border border-brand-red/10 whitespace-nowrap max-w-[12rem]"
+                >
+                  {cat.label}
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="hidden md:flex md:flex-nowrap md:items-center md:gap-x-8 md:py-5">
-            {sectionNav.map((cat) => (
-              <Link
-                key={cat.id}
-                to={`/menu#${cat.id}`}
-                onClick={(e) => {
-                  if (location.pathname !== '/menu') return;
-                  e.preventDefault();
-                  scrollToMenuAnchor(cat.id, 'smooth');
-                  window.history.replaceState(null, '', `/menu#${cat.id}`);
-                }}
-                className="shrink-0 font-fredoka font-bold text-brand-red hover:opacity-70 transition-opacity text-2xl tracking-wide uppercase whitespace-nowrap py-1"
-              >
-                {cat.label}
-              </Link>
-            ))}
-          </div>
+          <nav
+            className="hidden md:block py-4 lg:py-5"
+            aria-label="Menu categories"
+          >
+            <div className="grid grid-cols-5 gap-2.5 lg:gap-3">
+              {sectionNav.map((cat) => {
+                const active = location.hash === `#${cat.id}`;
+                return (
+                  <Link
+                    key={cat.id}
+                    to={`/menu#${cat.id}`}
+                    onClick={(e) => {
+                      if (location.pathname !== '/menu') return;
+                      e.preventDefault();
+                      scrollToMenuAnchor(cat.id, 'smooth');
+                      window.history.replaceState(null, '', `/menu#${cat.id}`);
+                    }}
+                    className={cn(
+                      'flex min-h-[3.75rem] lg:min-h-[4.25rem] items-center justify-center rounded-2xl border px-2 py-2.5 text-center font-fredoka font-bold uppercase tracking-wide transition-all',
+                      'text-xs leading-tight md:text-sm lg:text-base lg:leading-snug',
+                      active
+                        ? 'border-brand-red bg-brand-red text-white shadow-md ring-2 ring-brand-red/30 ring-offset-2 ring-offset-brand-cream'
+                        : 'border-brand-red/20 bg-white/90 text-brand-red shadow-sm hover:border-brand-red/35 hover:bg-white hover:shadow-md',
+                    )}
+                  >
+                    <span className="line-clamp-2 [overflow-wrap:anywhere]">{cat.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
         </div>
       </div>
 

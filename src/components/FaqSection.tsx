@@ -37,8 +37,8 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'What kind of food do you serve?',
     answer: (
       <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-nunito">
-        Korean comfort food and street eats — tteokbokki, jajangmyeon, handmade sujebi soups, kimbap,
-        chi-bap, cold noodles, donkatsu, and more. Everything under $20.{' '}
+        Korean comfort food and street eats — K-BBQ, bibimbap, sundubu, tteokbokki, jajangmyeon, kimbap,
+        chi-bap, cold noodles, donkatsu, and more.{' '}
         <Link to="/menu" className="text-brand-red font-semibold ml-1">
           See Full Menu →
         </Link>
@@ -49,8 +49,8 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'How much does it cost?',
     answer: (
       <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-nunito">
-        Kimbap starts at $6.99. Most dishes are $12.99–$14.99. Our premium specials (chi-bap, salmon
-        bowl) are $17.99–$18.99. All under $20.
+        Kimbap is $7.99. Many favorites are $10.99–$17.99; K-BBQ and premium plates range from about $18.99
+        to $30.99 (see menu for full pricing).
       </p>
     ),
   },
