@@ -113,32 +113,33 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="relative min-w-0 max-w-full"
+            className="relative min-w-0 max-w-full flex justify-center lg:justify-end lg:mt-5 xl:mt-7"
           >
-            <div className="relative z-10 rounded-[32px] xl:rounded-[60px] overflow-hidden shadow-2xl border-[8px] lg:border-[12px] xl:border-[16px] border-white transform rotate-2">
-              <img
-                src={heroImageSrc}
-                alt="Korean chicken rice plate with rice, salad, celery, and dipping sauces"
-                className="w-full h-auto object-cover"
-                width={1000}
-                height={1200}
-              />
-            </div>
+            <div className="relative w-full max-w-[19rem] sm:max-w-[21rem] lg:max-w-[23rem] xl:max-w-[26rem]">
+              <div className="relative z-10 rounded-[32px] xl:rounded-[60px] overflow-hidden shadow-2xl border-[8px] lg:border-[12px] xl:border-[16px] border-white transform rotate-2">
+                <img
+                  src={heroImageSrc}
+                  alt="Korean chicken rice plate with rice, salad, celery, and dipping sauces"
+                  className="w-full h-auto object-cover"
+                  width={1000}
+                  height={1200}
+                />
+              </div>
 
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="hidden xl:flex absolute -top-10 -right-10 z-20 bg-brand-yellow text-brand-dark p-8 rounded-full font-fredoka font-bold shadow-2xl border-8 border-white text-center transform -rotate-12"
-            >
-              <span className="block text-4xl leading-none">100%</span>
-              <span className="text-xs tracking-widest">SOUL FOOD</span>
-            </motion.div>
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden xl:flex xl:flex-col xl:items-center xl:justify-center absolute top-3 right-3 z-20 bg-brand-yellow text-brand-dark p-6 xl:p-7 rounded-full font-fredoka font-bold shadow-2xl border-[6px] xl:border-8 border-white text-center transform -rotate-12"
+              >
+                <span className="block text-3xl xl:text-4xl leading-none">100%</span>
+                <span className="text-[10px] xl:text-xs tracking-widest">SOUL FOOD</span>
+              </motion.div>
 
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, delay: 1, ease: 'easeInOut' }}
-              className="hidden xl:flex absolute -bottom-12 -left-12 z-20 bg-white p-6 rounded-[32px] shadow-2xl border border-gray-100 items-center gap-5"
-            >
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 5, repeat: Infinity, delay: 1, ease: 'easeInOut' }}
+                className="hidden xl:flex absolute -bottom-8 -left-6 z-20 bg-white p-5 rounded-[28px] shadow-2xl border border-gray-100 items-center gap-4 max-w-[min(100%,16rem)]"
+              >
               <div className="bg-red-50 p-4 rounded-2xl">
                 <Utensils className="text-brand-red" size={28} />
               </div>
@@ -151,6 +152,7 @@ export default function Hero() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
