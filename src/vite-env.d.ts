@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  /** GitHub repo name (e.g. daldal-bunsik) — set in CI so routing works on Project Pages. */
+  readonly VITE_GITHUB_PAGES_REPO?: string;
   readonly VITE_ONLINE_ORDER_URL?: string;
   /** WhatsApp number with country code, digits only (e.g. 19725551234 for US +1 972-555-1234) */
   readonly VITE_ORDER_WHATSAPP?: string;

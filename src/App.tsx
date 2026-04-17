@@ -34,9 +34,27 @@ function AnimatedRoutes() {
   );
 }
 
+/** Project Pages only — custom domains are served from `/`, so no basename. */
+function githubPagesProjectBasename(): string | undefined {
+  const repo = import.meta.env.VITE_GITHUB_PAGES_REPO?.trim();
+  if (!repo || typeof window === 'undefined') return undefined;
+
+  const { hostname, pathname } = window.location;
+  if (!hostname.endsWith('.github.io')) return undefined;
+
+  const prefix = `/${repo}`;
+  if (pathname === prefix || pathname.startsWith(`${prefix}/`)) {
+    return prefix;
+  }
+  return undefined;
+}
+
 function routerBasename(): string | undefined {
+  const ghBasename = githubPagesProjectBasename();
+  if (ghBasename) return ghBasename;
+
   const raw = import.meta.env.BASE_URL;
-  if (raw === '/') return undefined;
+  if (raw === '/' || raw === './') return undefined;
   return raw.endsWith('/') ? raw.slice(0, -1) : raw;
 }
 

@@ -5,19 +5,15 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
-  /** GitHub Actions sets GITHUB_REPOSITORY=owner/Repo-Name → Pages lives at /Repo-Name/ */
-  const repo =
-    typeof process.env.GITHUB_REPOSITORY === 'string'
-      ? process.env.GITHUB_REPOSITORY.split('/')[1]
-      : undefined;
-  const ciPagesBase =
-    process.env.GITHUB_ACTIONS === 'true' && repo ? `/${repo}/` : '/';
-
+  /**
+   * Default `./` so asset URLs work on a custom domain (root) and on
+   * `*.github.io/<repo>/`. Router basename for the repo path is handled in App
+   * via `VITE_GITHUB_PAGES_REPO` (set in the deploy workflow). Override with
+   * `VITE_BASE_URL` if you use a fixed absolute base.
+   */
   let base =
-    env.VITE_BASE_URL ||
-    process.env.VITE_BASE_URL ||
-    (ciPagesBase !== '/' ? ciPagesBase : '/');
-  if (base !== '/' && !base.endsWith('/')) base += '/';
+    env.VITE_BASE_URL || process.env.VITE_BASE_URL || './';
+  if (base !== '/' && base !== './' && !base.endsWith('/')) base += '/';
 
   return {
     base,

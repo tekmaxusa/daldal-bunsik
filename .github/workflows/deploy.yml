@@ -36,8 +36,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Base path must match the repo slug (e.g. daldal-bunsik), or /assets/ will 404 on Pages.
+      # Repo slug is used only for React Router on *.github.io/<repo>/ (custom domains use root).
       - name: Build
+        env:
+          VITE_GITHUB_PAGES_REPO: ${{ github.event.repository.name }}
         run: npm run build
 
       - name: Upload artifact

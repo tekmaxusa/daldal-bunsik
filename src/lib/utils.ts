@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-/** `public/` file URL — uses Vite `BASE_URL` (GitHub Pages project site = `/Repo-Name/`). */
+/** `public/` file URL — respects Vite `BASE_URL` (default build uses relative `./`). */
 /** `tel:` href for tap-to-call; placeholder numbers use +19720000000 until real digits are configured. */
 export function phoneToTelHref(displayPhone: string): string {
   const trimmed = displayPhone.trim();
