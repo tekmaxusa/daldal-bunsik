@@ -1,0 +1,12 @@
+services:
+  daldal-bunsik:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_GOOGLE_SCRIPT_URL: ${VITE_GOOGLE_SCRIPT_URL:-}
+        VITE_ORDER_WHATSAPP: ${VITE_ORDER_WHATSAPP:-}
+        VITE_ONLINE_ORDER_URL: ${VITE_ONLINE_ORDER_URL:-}
+    ports:
+      - "3000:80"
+    restart: unless-stopped
