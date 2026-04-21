@@ -49,7 +49,7 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'How much does it cost?',
     answer: (
       <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-nunito">
-        Kimbap is $7.99. Many favorites are $10.99–$17.99; K-BBQ and premium plates range from about $18.99
+        Kimbap starts at $5.99. Many favorites are $10.99–$17.99; K-BBQ and premium plates range from about $18.99
         to $30.99 (see menu for full pricing).
       </p>
     ),

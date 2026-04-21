@@ -7,6 +7,7 @@ const JJAMPONG_IMG = publicUrl('images/jjamppong.png');
 const TANGSUYUK_IMG = publicUrl('images/tangsuyuk.png');
 const DONKATSU_IMG = publicUrl('images/donkatsu.png');
 const MUL_NAENGMYEON_IMG = publicUrl('images/mul-naengmyeon.png');
+const COLD_SOBA_IMG = publicUrl('images/cold-soba.png');
 const JJOLMYEON_IMG = publicUrl('images/jjolmyeon.png');
 const SALMON_HWE_IMG = publicUrl('images/salmon-hwe-deopbap.png');
 /** Generic placeholder for missing or duplicate menu photos (see `public/images/menu-placeholder.png`). */
@@ -49,7 +50,7 @@ export const MENU_SECTION_ORDER: MenuSectionMeta[] = [
     key: 'fried-rice',
     title: 'FRIED RICE',
     navLabel: 'FRIED RICE',
-    description: 'Wok-fired rice with classic Korean flavors.',
+    description: 'Stir-fried rice with classic Korean flavors.',
   },
   {
     key: 'sides',
@@ -299,6 +300,17 @@ export const MENU_ITEMS: MenuItem[] = [
     image: MENU_PLACEHOLDER,
     spicyLevel: 1,
   },
+  {
+    id: 'chicken-fried-rice',
+    name: 'CHICKEN FRIED RICE',
+    koreanName: '치킨 볶음밥',
+    description:
+      'Stir-fried rice with tender chicken, vegetables, and egg — savory, comforting, and full of flavor.',
+    price: '$13.99',
+    category: 'Main',
+    menuSection: 'fried-rice',
+    image: MENU_PLACEHOLDER,
+  },
 
   // —— SIDES ——
   {
@@ -352,7 +364,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'GIM-MARI',
     koreanName: '김말이',
     description: 'Fried seaweed rolls (4 pcs) — deep-fried glass noodles wrapped in seaweed.',
-    price: '$6.99',
+    price: '$3.99',
     category: 'Main',
     menuSection: 'korean-soul-food',
     image: MENU_PLACEHOLDER,
@@ -387,7 +399,7 @@ export const MENU_ITEMS: MenuItem[] = [
     koreanName: '불고기 김밥',
     description:
       'Kimbap (Korean seaweed rice roll) filled with marinated beef, radish, cucumber, egg, carrot, and lettuce.',
-    price: '$7.99',
+    price: '$6.99',
     category: 'Main',
     menuSection: 'kimbap',
     image: MENU_PLACEHOLDER,
@@ -398,7 +410,7 @@ export const MENU_ITEMS: MenuItem[] = [
     koreanName: '참치마요 김밥',
     description:
       'Kimbap (Korean seaweed rice roll) filled with tuna mixed with mayonnaise, radish, cucumber, egg, carrot, and lettuce.',
-    price: '$7.99',
+    price: '$6.99',
     category: 'Main',
     menuSection: 'kimbap',
     image: MENU_PLACEHOLDER,
@@ -409,7 +421,7 @@ export const MENU_ITEMS: MenuItem[] = [
     koreanName: '새우튀김 김밥',
     description:
       'Kimbap (Korean seaweed rice roll) filled with crispy shrimp tempura, radish, cucumber, egg, carrot, and lettuce.',
-    price: '$7.99',
+    price: '$6.99',
     category: 'Main',
     menuSection: 'kimbap',
     image: MENU_PLACEHOLDER,
@@ -420,7 +432,7 @@ export const MENU_ITEMS: MenuItem[] = [
     koreanName: '치즈 김밥',
     description:
       'Kimbap (Korean seaweed rice roll) with melted cheese filling, radish, cucumber, egg, carrot, and lettuce.',
-    price: '$7.99',
+    price: '$6.99',
     category: 'Main',
     menuSection: 'kimbap',
     image: MENU_PLACEHOLDER,
@@ -431,7 +443,7 @@ export const MENU_ITEMS: MenuItem[] = [
     koreanName: '야채 김밥',
     description:
       'Kimbap (Korean seaweed rice roll) filled with radish, cucumber, egg, carrot, and lettuce.',
-    price: '$7.99',
+    price: '$5.99',
     category: 'Main',
     menuSection: 'kimbap',
     image: MENU_PLACEHOLDER,
@@ -473,6 +485,17 @@ export const MENU_ITEMS: MenuItem[] = [
     menuSection: 'korean-noodles',
     image: MUL_NAENGMYEON_IMG,
   },
+  {
+    id: 'cold-soba-noodle',
+    name: 'COLD SOBA NOODLE',
+    koreanName: '냉 모밀 국수',
+    description:
+      'Cold buckwheat soba noodles — light, refreshing, and served chilled for a clean, satisfying bowl.',
+    price: '$13.99',
+    category: 'Main',
+    menuSection: 'korean-noodles',
+    image: COLD_SOBA_IMG,
+  },
 
   // —— SPECIALS ——
   {
@@ -485,7 +508,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: 'Main',
     menuSection: 'specials',
     image: CHICKEN_RICE,
-    limitedAvailability: true,
+    signatureDish: true,
     orderSpecial: true,
   },
   {
@@ -503,7 +526,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 'gamja-sujebi',
-    name: 'POTATO DOUGH SOUP',
+    name: 'POTATO HAND-PULLED DOUGH SOUP',
     koreanName: '감자 수제비',
     description:
       'Gamja sujebi — hand-pulled dough and tender potato in a hearty, savory broth. Pure Korean comfort food.',

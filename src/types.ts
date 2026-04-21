@@ -21,7 +21,6 @@ export interface MenuItem {
   menuSection: MenuSectionKey;
   image: string;
   spicyLevel?: 0 | 1 | 2 | 3;
-  limitedAvailability?: boolean;
   signatureDish?: boolean;
   orderSpecial?: boolean;
 }

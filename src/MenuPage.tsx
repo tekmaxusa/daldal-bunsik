@@ -71,15 +71,15 @@ export default function MenuPage() {
       </section>
 
       {/* Sticks below fixed Navbar — needs ancestors without overflow-x-hidden (use clip on body). */}
-      <div className="sticky top-[4.5rem] sm:top-24 md:top-[5.5rem] z-[45] w-full bg-brand-cream/95 backdrop-blur-md border-b-2 border-brand-red/20 shadow-sm">
+      <div className="sticky top-[4.5rem] sm:top-24 md:top-[5.5rem] z-[45] w-full bg-brand-cream/95 backdrop-blur-md border-b-2 border-brand-red/20 shadow-sm pt-8 pb-5 md:pt-10 md:pb-6">
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
-          {/* Mobile: horizontal scroll */}
+          {/* Mobile: horizontal scroll — vertical padding on sticky parent for even top/bottom */}
           <div
             className={cn(
               'md:hidden overflow-x-auto overscroll-x-contain',
               /* Hide horizontal scrollbar but keep touch/drag scroll */
               '[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
-              'py-4 -mx-1 px-1',
+              '-mx-1 px-1',
             )}
           >
             <div className="flex gap-2 min-w-max">
@@ -101,7 +101,7 @@ export default function MenuPage() {
             </div>
           </div>
           <nav
-            className="hidden md:block py-4 lg:py-5"
+            className="hidden md:block"
             aria-label="Menu categories"
           >
             <div className="grid grid-cols-5 gap-2.5 lg:gap-3">

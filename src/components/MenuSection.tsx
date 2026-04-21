@@ -89,11 +89,6 @@ export default function MenuSection({
               <div className="p-5 sm:p-8 flex-grow flex flex-col min-w-0">
                 <div className="space-y-2 mb-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    {item.limitedAvailability && (
-                      <span className="text-[10px] font-fredoka font-bold uppercase tracking-wider text-brand-red bg-brand-red/10 px-2 py-0.5 rounded-full">
-                        Limited availability
-                      </span>
-                    )}
                     {item.signatureDish && (
                       <span className="text-[10px] font-fredoka font-bold uppercase tracking-wider text-white bg-brand-dark px-2 py-0.5 rounded-full">
                         Signature dish

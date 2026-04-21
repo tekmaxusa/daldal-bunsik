@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronUp } from 'lucide-react';
-import { hasExternalOrderUrl, ONLINE_ORDER_URL } from '../lib/siteConfig';
 
 const SHOW_AFTER_PX = 120;
-
-const orderBtnClass =
-  'w-full font-fredoka font-bold uppercase tracking-widest rounded-full py-3.5 text-sm text-center active:scale-[0.98] transition-transform bg-brand-red text-white hover:opacity-95 border border-brand-red';
 
 const backBtnClass =
   'flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-dark text-white border border-white/25 hover:opacity-95 active:scale-[0.98] transition-transform';
@@ -37,20 +32,6 @@ export default function MobileScrollActions() {
               <ChevronUp className="h-5 w-5" strokeWidth={2.75} aria-hidden />
             </button>
           </div>
-          {hasExternalOrderUrl() ? (
-            <a
-              href={ONLINE_ORDER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={orderBtnClass}
-            >
-              Order now
-            </a>
-          ) : (
-            <Link to="/menu" className={orderBtnClass}>
-              Order now
-            </Link>
-          )}
         </div>
       </div>
       <button
